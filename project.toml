@@ -1,0 +1,39 @@
+[project]
+name = "chess-engine"
+version = "0.1.0"
+description = "A chess engine built from scratch in Python: board representation, legal move generation, minimax/alpha-beta search, and evaluation."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "Taing Tunvatnak (Nak)" }
+]
+keywords = ["chess", "engine", "minimax", "alpha-beta", "search"]
+
+dependencies = []
+
+[project.optional-dependencies]
+web = [
+    "flask>=3.0",
+]
+dev = [
+    "pytest>=8.0",
+    "pytest-cov>=5.0",
+]
+
+[project.scripts]
+chess-play = "cli.play_cli:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["chess_engine*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
